@@ -3,10 +3,19 @@ using TodoApi.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowLocalhost", policy =>
+    {
+        policy.WithOrigins("http://127.0.0.1:5500")  
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 
 builder.Services.AddControllers();
 
-// Configurando o DbContext para usar o SQL Server
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
@@ -16,9 +25,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseCors("AllowLocalhost");
 
-app.Urls.Add("http://localhost:5029");  // Definindo a URL de acesso
-
+app.Urls.Add("http://localhost:5029");
 
 if (app.Environment.IsDevelopment())
 {
@@ -26,8 +35,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();  // Habilita redirecionamento para HTTPS
-app.UseAuthorization();  // Autorização
-app.MapControllers();  // Mapeia os controllers
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
 
-app.Run();  
+app.Run();
