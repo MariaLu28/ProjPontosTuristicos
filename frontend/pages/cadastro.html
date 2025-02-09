@@ -1,51 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../style/styles.css">
-    <title>Inicio</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../style/styles.css">
+  <title>Inicio</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+</head>
 
-    <header class="oheader">
-        <div id="logo">Logotipo</div>
-        </header>
+<body>
 
-      <form>
+  <header id="headerpagecad">
+    <div id="logo">TuristandoBr</div>
+  </header>
+
+  <main>
+
+    <form id="alinhaformcad">
+      <div id="inputconteiner" style="margin-left: 4vh;">
         <label for="name">Nome</label>
         <input type="text" placeholder="...">
-
-        <h2>Localização</h2>
-
-       <div id="alinhaDiv">
-        <label for="Estado">Estado</label>
-        <select id="Estado" name="estado">Selecio</select>
-        <option value="sp"></option>
-
-        <label for="cidade">Cidade</label>
-        <input type="text">
-       </div>
-        
-       <label for="Referencia">Referencia</label>
-       <input type="text">
-
-       <label for="Descrição"></label>
-       <input type="text">
-      </form>
-
-      <div id="alinhaButton">
-        <a href="inicio.html">Voltar</a>
-      <button>Cadastrar</button>
-
       </div>
-      
 
-    
-    <script type="text/babel" src="../js/index.jsx"></script>
+      <h2 style="margin-right:95vh;">Localização</h2>
 
-  </body>
+      <div id="alinhaufcid">
+        <div id="inputconteiner">
+
+          <label for="combobox">UF/Cidade</label>
+          <select id="combobox">
+            <option value=""></option>
+            <option value="AC">AC</option>
+            <option value="AL">AL</option>
+            <option value="AP">AP</option>
+            <option value="AM">AM</option>
+            <option value="BA">BA</option>
+            <option value="CE">CE</option>
+            <option value="DF">DF</option>
+            <option value="ES">ES</option>
+            <option value="GO">GO</option>
+            <option value="MA">MA</option>
+            <option value="MT">MT</option>
+            <option value="MS">MS</option>
+            <option value="MG">MG</option>
+            <option value="PA">PA</option>
+            <option value="PB">PB</option>
+            <option value="PR">PR</option>
+            <option value="PE">PE</option>
+            <option value="PI">PI</option>
+            <option value="RJ">RJ</option>
+            <option value="RN">RN</option>
+            <option value="RS">RS</option>
+            <option value="RO">RO</option>
+            <option value="RR">RR</option>
+            <option value="SC">SC</option>
+            <option value="SP">SP</option>
+            <option value="SE">SE</option>
+            <option value="TO">TO</option>
+          </select>
+
+          <label for="cidade"></label>
+          <input type="text" class="inputmenor">
+
+        </div>
+      </div>
+
+      <div id="inputconteiner">
+        <label for="Referencia">Referencia</label>
+        <input type="text">
+      </div>
+
+      <div id="inputconteiner">
+        <label for="Descrição">Descrição</label>
+        <textarea></textarea>
+      </div>
+
+    </form>
+
+    <div id="alinhaButton">
+      <a href="inicio.html">Voltar</a>
+      <button id="buttongeral">Cadastrar</button>
+
+    </div>
+  </main>
+
+
+  <script type="text/babel" src="../js/index.jsx"></script>
+
+</body>
+
 </html>

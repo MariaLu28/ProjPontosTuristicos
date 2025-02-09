@@ -1,118 +1,169 @@
-header{
-    display: flex;
-    flex-direction: row;
-    gap: 110vh;
-    align-items: center;
-    justify-content: center;
+header {
+  display: flex;
+  flex-direction: row;
+  gap: 110vh;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
 }
+
+#headerpagecad{
+  margin-right: 138vh;
+  margin-top: 2%;
+}
+
 body {
-    background-color: #daf7ec;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-     /* padding-left: 2%;*/
-    padding-top: 2%;   
-    display: grid;
-    grid-template-areas: 
-    "header header"
-    "main main";
-    grid-template-columns: auto auto;
-    grid-template-rows: 10VH 79vh ;
-    grid-gap: 2rem;
-  }
-
-main{
-    align-content: center;
-    justify-items: center;
-    
+  background-color: #e7f6f0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-top: 2%;
 }
 
-input{
-   width: 100vh;
-   height: 5vh;
-   border-radius: 20px;
-   font-size: medium;
-   border: 2px solid #99BFAA;
-   outline: none;
-   
-   
-  }
+main {
+  align-content: center;
+  justify-items: center;
+}
 
-   input:focus{
-    border-color: #397368;
-   }
-  
- 
-   #buttonBuscar{
-    font-size: medium;
-    border-radius: 10px;
-    width: 15vh;
-    height: 4vh;
-    outline: none;
-    background-color: #99BFAA;
-   }
+input {
+  width: 98vh;
+  height: 6vh;
+  border-radius: 20px;
+  font-size: medium;
+  border: 2px solid #99BFAA;
+  outline: none;
+  padding-left: 1vh;
+  font-family:  Arial;
+}
 
-   #buttonCad{
-    background-color: #99BFAA;
-    font-size: medium;
-    border-radius: 10px;
-    width: 28vh;
-    height: 4vh;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    padding-top: 1.5vh;
-    color: white;
-    
-   }
+input:focus {
+  border-color: #397368;
+}
 
-   #buttonCad:focus{
-    background-color: #397368;
-   }
+#buttonBuscar {
+  font-size: medium;
+  border-radius: 10px;
+  width: 15vh;
+  height: 4vh;
+  outline: none;
+  color: white;
+  background-color: #99BFAA;
+  border-color: transparent;
+  cursor: pointer;
+}
 
-   #alinhaform1{ /*alinha a barra de pesquisa e botao pag inicial */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2vh;
-   }
+#buttonCad {
+  background-color: #99BFAA;
+  font-size: medium;
+  border-radius: 10px;
+  width: 28vh;
+  height: 4vh;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding-top: 1.5vh;
+  color: white;
+}
 
-   #alinhaDiv{
-    display: flex;
-    flex-direction: row;
-    gap: 4vh
-   }
+#buttonCad:focus {
+  background-color: #397368;
+}
 
-   #alinhaButton{
-    display: flex;
-    flex-direction: row;
-    gap: 11vh
-   }
+#alinhaform1 { /*alinha a barra de pesquisa e botao pag inicial */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  margin-top: 23vh;
+}
 
+#alinhaformcad { /*alinha o form da pagina cadastro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10vh;
+  gap: 1vh;
+}
 
-  .oheader{
-    grid-area: header;
-  }
+#alinhaDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh
+}
 
-  .omain{
-    grid-area: main;
-  }
+#alinhaButton {
+  display: flex;
+  flex-direction: row;
+  gap: 11vh
+}
 
-  .omain, .oheader{
-    background-color: rgba(137, 43, 226, 0.308);
-  }
+.inputmenor {
+  width: 80vh;
+}
 
-  #logo{
-    background-color: red;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /* padding-left: 2%;
+#alinhaufcid { /*alinha o input do estado e cidade */
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+#inputconteiner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+select {
+  width: 15vh;
+  height: 6vh;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 10px;
+  z-index: 10px;
+  border-radius: 20px;
+}
+
+option {
+  padding: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+#buttongeral{
+  background-color: #99BFAA;
+  font-size: big;
+  border-radius: 10px;
+  width: 18vh;
+  height: 4vh;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding-top: 1.5vh;
+  color: white;
+}
+
+#logo {
+  background-color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* padding-left: 2%;
     padding-top: 0,5px; */
-    height: 65px; 
-    width: 180px;
-    text-align: center;
-    line-height: 60px;
-  }
+  height: 65px;
+  width: 180px;
+  text-align: center;
+  line-height: 60px;
+}
 
-
-
-
-
-
+textarea {
+  width: 98vh; 
+  height: 12hv; 
+  padding: 10px;
+  border-radius: 20px;
+  font-size: medium;
+  font-family: Arial;
+  border: 2px solid #99BFAA;
+  outline: none;
+  padding-left: 1vh;
+  line-height: 1.5; 
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  resize: none;
+}
