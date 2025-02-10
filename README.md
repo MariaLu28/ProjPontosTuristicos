@@ -18,16 +18,17 @@ HTML: Estrutura do conteúdo da página.
 
 Configuração do Banco de Dados e Execução da API:
 
+-Baixe e instale a versão 8 do SDK .Net no site da Microsoft:
+https://dotnet.microsoft.com/en-us/download
+
+-Restaure os pacotes do .NET:
+dotnet restore
+
 O banco de dados desse projeto foi criado no SQLServer. 
 
 Para conexão com o banco, navegue até a pasta raiz do projeto e entre na pasta do back-end:
-cd backend
 
--Depois na pasta TodoApi:
-cd TodoApi
-
--Data: 
-cd Data
+-Depois navegue até a pasta TodoApi e localize a pasta Data.
 
 Abra o arquivo AppDbContext.cs.
 Este arquivo é responsavel por configurar a conexão com o banco de dados. Certifique-se de que sua conexão siga o seguinte padrão:
@@ -36,10 +37,7 @@ Este arquivo é responsavel por configurar a conexão com o banco de dados. Cert
 Após configurar a conexão com o banco, navegue para a pasta TodoApi:
 cd TodoApi
 
--Restaure os pacotes do .NET:
-dotnet restore
-
--Gere o arquivo de imigração do bancp de dados com o seguinte comando:
+-Gere o arquivo de imigração do banco de dados com o seguinte comando:
 dotnet ef migrations add InitialCreate
 
 Aplique as migrations para criar as tabelas no banco de dados:
