@@ -8,14 +8,17 @@
 <body>
 
   <header id="headerpagecad">
-    <div id="logo">TuristandoBr</div>
+    <div id="logo">
+      <img src="../style/imagens/logoproj.png"
+    </div>
+
   </header>
 
   <main>
     <form id="alinhaformcad">
       <div id="inputconteiner" style="margin-left: 4vh;">
         <label for="nome">Nome</label>
-        <input type="text" id="nome" placeholder="..." required>
+        <input type="text" id="nome" required>
       </div>
 
       <h2 style="margin-right:95vh;">Localização</h2>
@@ -60,7 +63,7 @@
       </div>
 
       <div id="inputconteiner">
-        <label for="referencia">Referencia</label>
+        <label for="referencia">Referência</label>
         <input type="text" id="referencia" required>
       </div>
 
@@ -71,14 +74,14 @@
     </form>
 
     <div id="alinhaButton">
-      <a href="inicio.html">Voltar</a>
-      <button id="buttongeral" type="button">Cadastrar</button>
+      <a href="inicio.html" id="buttonVoltar"> Voltar </a>
+      <button id="buttonCadastrar" type="button">Cadastrar</button>
     </div>
   </main>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const button = document.getElementById('buttongeral');
+      const button = document.getElementById('buttonCadastrar');
       if (!button) {
         console.error('Botão não encontrado!');
         return;

@@ -7,10 +7,17 @@
 </head>
 <body>
 
-  <header class="oheader">
-    <div id="logo">TuristandoBr</div>
-    <a href="cadastro.html" id="buttonCad">Cadastrar um ponto turístico</a>
+  <header>
+    <div id="headerpagecad">
+      <div id="logo">
+        <img src="../style/imagens/logoproj.png" />
+      </div>
+    </div>
   </header>
+
+  <div style="margin-left: 130vh;">
+    <a href="cadastro.html" id="buttonCad">Cadastrar um ponto turístico</a>
+  </div>
 
   <main class="omain">
     <form id="alinhaform1">
@@ -19,65 +26,101 @@
     </form>
 
     <div id="result"></div>
+    <div id="pagination"></div>
   </main>
 
   <script>
+    let allResults = [];
+    let currentPage = 1;
+    const itemsPerPage = 2;
+
     document.getElementById('buttonBuscar').addEventListener('click', function() {
       const searchTerm = document.getElementById('searchTerm').value.trim();
-      const numpag = 1;
-      const itenspag =5;
 
       if (searchTerm) {
-        fetch(`http://localhost:5029/api/Cadastros?search=${searchTerm}`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Falha na requisição: ' + response.statusText);
-            }
-            return response.json();
-          })
-          .then(data => {
-            const resultDiv = document.getElementById('result');
-            if (data.length > 0) {
-              let output = '';
-              data.forEach(item => {
-                output += `
-                  <div class="card">
-                    <h3 class="card-title">${item.cad_Nome}</h3>
-                    <p class="card-localizacao">${item.cad_Localizacao}</p>
-                    <button id="buttonDetalhes" onclick="showDetails(${item.cad_Id})">Mais detalhes</button>
-                    <div id="details-${item.cad_Id}" class="details" style="display: none;">
-                      <p><strong>Descrição:</strong>${item.cad_Descricao}</p>
-                      <p><strong>Cidade:</strong> ${item.cad_Cidade}</p>
-                      <p><strong>Estado:</strong> ${item.cad_Uf}</p>
-                    </div>
-                  </div>
-                `;
-              });
-              resultDiv.innerHTML = output;
-            } else {
-              resultDiv.innerHTML = "<p>Nenhum ponto turístico encontrado.</p>";
-            }
-          })
-          .catch(error => {
-            console.error('Erro na requisição:', error);
-            document.getElementById('result').innerHTML = `<p>Nenhum ponto turístico encontrado</p>`;
-          });
+        fetchResults(searchTerm);
       } else {
         alert("Por favor, insira um termo para buscar.");
       }
     });
-    
+
+    function fetchResults(searchTerm) {
+      fetch(`http://localhost:5029/api/Cadastros?search=${searchTerm}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Falha na requisição: ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          allResults = data;
+          displayResults();
+          setupPagination();
+        })
+        .catch(error => {
+          console.error('Erro na requisição:', error);
+          document.getElementById('result').innerHTML = "<p>Não foi possivel encontrar nenhum resultado.</p>";
+        });
+    }
+
+    function displayResults() {
+      const resultDiv = document.getElementById('result');
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      const currentItems = allResults.slice(start, end);
+
+      if (currentItems.length > 0) {
+        let output = '';
+        currentItems.forEach(item => {
+          output += `
+            <div class="card">
+              <h3 class="cardtitle">${item.cad_Nome}</h3>
+              <p class="cardlocalizacao">${item.cad_Localizacao}</p>
+              <button id="buttonDetalhes" onclick="showDetails(${item.cad_Id})">Mais detalhes</button>
+              <div id="details-${item.cad_Id}" class="details" style="display: none;">
+                <p><strong>Descrição:</strong>${item.cad_Descricao}</p>
+                <p><strong>Cidade:</strong> ${item.cad_Cidade}</p>
+                <p><strong>Estado:</strong> ${item.cad_Uf}</p>
+              </div>
+            </div>
+          `;
+        });
+        resultDiv.innerHTML = output;
+      } else {
+        resultDiv.innerHTML = "<p>Nenhum ponto turístico encontrado.</p>";
+      }
+    }
+
     function showDetails(id) {
       const detailsDiv = document.getElementById(`details-${id}`);
       if (detailsDiv.style.display === "none") {
         detailsDiv.style.display = "block";
       } else {
-        detailsDiv.style.display = "none"; /*infos como localização, cidade, etc são ocultas aqui*/
+        detailsDiv.style.display = "none";
       }
     }
+
+    function setupPagination() {
+      const totalPages = Math.ceil(allResults.length / itemsPerPage);
+      const paginationDiv = document.getElementById('pagination');
+      let output = '';
+
+      if (currentPage > 1) {
+        output += `<button onclick="goToPage(${currentPage - 1})">Página Anterior</button>`;
+      }
+      if (currentPage < totalPages) {
+        output += `<button onclick="goToPage(${currentPage + 1})">Próxima Página</button>`;
+      }
+
+      paginationDiv.innerHTML = output;
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      displayResults();
+      setupPagination();
+    }
   </script>
-  
 
 </body>
 </html>
-
