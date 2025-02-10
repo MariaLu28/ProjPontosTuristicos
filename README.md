@@ -137,4 +137,8 @@ Após a inicialização no navegador, verifique se a URL onde o Live Server inic
 Caso não seja, altere a URL no arquivo Program.cs, na linha 10, dentro do método WithOrigins(), e reinicie a API.
 Com isso, o sistema estará pronto para uso.
 
+Os dados de pontos turísticos podem ser cadastrados diretamente pela interface do sistema. Não há necessidade de inserir dados manualmente no banco de dados, pois a aplicação permite o cadastro de novos pontos turísticos através da funcionalidade na interface.
+
+Após a execução da API e inicialização da interface front-end, basta navegar para a seção de cadastro e adicionar os pontos turísticos desejados.
+
 Agradeço pela sua atenção.
