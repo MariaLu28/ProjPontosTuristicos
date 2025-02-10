@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="../style/styles.css">
   <title>Cadastro</title>
 </head>
+
 <body>
 
   <header id="headerpagecad">
     <div id="logo">
-      <img src="../style/imagens/logoproj.png"
-    </div>
+      <img src="../style/imagens/logoproj.png" </div>
 
   </header>
 
@@ -86,25 +87,25 @@
         console.error('Botão não encontrado!');
         return;
       }
-  
-      button.addEventListener('click', async function() {
+
+      button.addEventListener('click', async function () {
         console.log("Botão clicado!");
-  
+
         const nome = document.getElementById('nome').value.trim();
         const descricao = document.getElementById('descricao').value.trim();
         const uf = document.getElementById('combobox').value.trim();
         const cidade = document.getElementById('cidade').value.trim();
         const referencia = document.getElementById('referencia').value.trim();
-  
+
         // Validação básica para garantir que nenhum campo esteja vazio
         if (!nome || !descricao || !uf || !cidade || !referencia) {
           alert("Por favor, preencha todos os campos.");
           return;
         }
-  
+
         // Agora, a localização é a referencia
         const localizacao = referencia;
-  
+
         // Montando o objeto que será enviado para a API
         const data = {
           Cad_Nome: nome,
@@ -114,9 +115,9 @@
           Cad_Referencia: referencia,
           Cad_Localizacao: localizacao  // Agora 'Cad_Localizacao' é igual a 'referencia'
         };
-  
+
         console.log("Dados a serem enviados:", data);
-  
+
         try {
           const response = await fetch('http://localhost:5029/api/Cadastros', {
             method: 'POST',
@@ -125,7 +126,7 @@
             },
             body: JSON.stringify(data)
           });
-  
+
           if (response.ok) {
             const result = await response.json();
             console.log('Cadastro realizado com sucesso:', result);
@@ -144,7 +145,8 @@
       });
     });
   </script>
-  
+
 
 </body>
+
 </html>

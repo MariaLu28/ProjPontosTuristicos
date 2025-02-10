@@ -13,4 +13,4 @@ CREATE TABLE CadastroPT (
     Cad_Cidade NVARCHAR(50) 
 );
 
-select * from CadastroPTs
+SELECT * FROM CadastroPTs
