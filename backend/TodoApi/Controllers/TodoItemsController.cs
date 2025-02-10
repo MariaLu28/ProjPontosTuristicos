@@ -126,6 +126,9 @@ public IActionResult GetCadastros([FromQuery] string search)
 {
     try
     {
+        var query = _context.CadastroPTs
+            .OrderByDescending(c => c.Cad_Id);
+
         var cadastros = _context.CadastroPTs.ToList(); // Busca todos os cadastros
 
         // Se não tiver termo de busca retorna todos
@@ -156,14 +159,36 @@ public IActionResult GetCadastros([FromQuery] string search)
 }
 
 
-        // POST: api/Cadastros
-        [HttpPost]
-        public async Task<ActionResult<CadastroPT>> PostCadastro(CadastroPT cadastro)
-        {
-            _context.CadastroPTs.Add(cadastro);  
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetCadastros), new { id = cadastro.Cad_Id }, cadastro);
-        }
+      // POST: api/Cadastros
+       [HttpPost]
+public async Task<ActionResult<CadastroPT>> PostCadastro([FromBody] CadastroPT cadastro)
+{
+    // Verifica se o modelo recebido é válido
+    if (!ModelState.IsValid)
+    {
+        return BadRequest(new { mensagem = "Erro de validação", erros = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
     }
+
+    try
+    {
+        // Verifica se os dados não estão vazios antes de salvar
+        if (cadastro == null)
+        {
+            return BadRequest(new { mensagem = "Os dados do cadastro não podem ser nulos." });
+        }
+
+        _context.CadastroPTs.Add(cadastro);
+        await _context.SaveChangesAsync();
+
+        // Retorna um CreatedAtAction apontando para a busca do cadastro recém-criado
+        return CreatedAtAction(nameof(GetCadastros), new { id = cadastro.Cad_Id }, cadastro);
+    }
+    catch (Exception ex)
+    {
+        return StatusCode(500, new { mensagem = "Erro ao salvar o cadastro", erro = ex.Message });
+    }
+}
+
+}
+
 }
