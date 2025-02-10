@@ -1,0 +1,1 @@
+delete from cadclientes where cli_id between 100 and 200
