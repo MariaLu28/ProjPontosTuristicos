@@ -16,27 +16,25 @@ A aplicação é construída com HTML, CSS, JavaScript no front-end e .NET (C#) 
 
 ->Instruções para Iniciar o Projeto:
 
--Clone o repositório:
-  git clone https://github.com/MariaLu28/ProjPontosTuristicos.git
+-Baixe e instale a versão 8 do SDK .Net no site da Microsoft:
+https://dotnet.microsoft.com/en-us/download
 
--Baixe e instale a versão 8 do SDK .NET no site oficial da Microsoft:
-  https://dotnet.microsoft.com/pt-br/download
+-Restaure os pacotes do .NET:
+dotnet restore
 
--Após a instalação, abra o terminal e navegue até a pasta TodoApi:
- cd backend
-  cdTodoApi
+O banco de dados desse projeto foi criado no SQLServer. 
 
- -Verifique a instalação com o comando:
-   dotnet --version
+Para conexão com o banco, navegue até a pasta raiz do projeto e entre na pasta do back-end:
+
+-Depois navegue até a pasta TodoApi e localize a pasta Data.
 
  -Restaure os pacotes do projeto usando o comando:
    dotnet restore
 
 ->Configuração do Banco de Dados e Execução da API:
 
-<!-- O banco de dados deste projeto foi criado no SQL Server. -->
-
-->Configuração da Conexão com o Banco:
+-Gere o arquivo de imigração do banco de dados com o seguinte comando:
+dotnet ef migrations add InitialCreate
 
 -Navegue até a pasta raiz do projeto e entre na pasta do backend:
   cd backend
