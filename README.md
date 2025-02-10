@@ -16,7 +16,7 @@ HTML: Estrutura do conteúdo da página.
  Para iniciar, clone o repositório :
  git clone https://github.com/MariaLu28/ProjPontosTuristicos.git
 
-Configuração do Banco de Dados e Execução da API
+Configuração do Banco de Dados e Execução da API:
 
 O banco de dados desse projeto foi criado no SQLServer. 
 
@@ -79,54 +79,33 @@ Exibição de destinos turísticos no Brasil.
 Filtros de pesquisa por tipo de destino e localização.
 Instruções para Iniciar o Projeto:
 Clone o repositório:
-
-bash
-Copiar
-Editar
 git clone https://github.com/MariaLu28/ProjPontosTuristicos.git
+
 Configuração do Banco de Dados e Execução da API:
 O banco de dados deste projeto foi criado no SQL Server.
 
 Configuração da Conexão com o Banco:
 
 Navegue até a pasta raiz do projeto e entre na pasta do back-end:
-
-bash
-Copiar
-Editar
 cd backend
+
 Em seguida, entre na pasta do projeto API:
-
-bash
-Copiar
-Editar
 cd TodoApi
-Depois, acesse a pasta de dados:
 
-bash
-Copiar
-Editar
+Depois, acesse a pasta de dados:
 cd Data
+
 Abra o arquivo AppDbContext.cs. Este arquivo é responsável por configurar a conexão com o banco de dados. Certifique-se de que sua string de conexão esteja no seguinte formato:
 
-csharp
-Copiar
-Editar
 "Server=(SeuServidor);Database=MeuBancoPT;Trusted_Connection=True;TrustServerCertificate=True;"
+
 Restaurar os Pacotes do .NET:
 
-Volte para a pasta TodoApi:
-
-bash
-Copiar
-Editar
-cd TodoApi
-Restaure os pacotes do .NET:
-
-bash
-Copiar
-Editar
 dotnet restore
+
+Volte para a pasta TodoApi:
+cd TodoApi
+
 Criar e Aplicar as Migrations:
 
 Gere o arquivo de migração do banco de dados:
