@@ -1,6 +1,7 @@
 PROJPONTOSTURISTICOS é um sistema web cuja funcionalidade é cadastrar e buscar pontos turísticos do Brasil. 
 A aplicação é construída com HTML, CSS, JavaScript no front-end e .NET (C#) para o back-end.
 
+
 ->Tecnologias utilizadas:
 
 -HTML: Estrutura do conteúdo da página.
@@ -8,11 +9,13 @@ A aplicação é construída com HTML, CSS, JavaScript no front-end e .NET (C#) 
 -JavaScript: Interatividade e manipulação do DOM.
 -.NET (C#): API que gerencia os dados e conecta o front-end ao banco de dados.
 
+
 ->Funcionalidades:
 
 -Cadastro de pontos turísticos no Brasil.
 -Exibição de destinos turísticos no Brasil.
 -Filtros de pesquisa por tipo de destino e localização.
+
 
 ->Instruções para Iniciar o Projeto:
 
@@ -30,6 +33,7 @@ Para conexão com o banco, navegue até a pasta raiz do projeto e entre na pasta
 
  -Restaure os pacotes do projeto usando o comando:
    dotnet restore
+
 
 ->Configuração do Banco de Dados e Execução da API:
 
@@ -53,12 +57,15 @@ dotnet ef migrations add InitialCreate
 -Volte para a pasta TodoApi:
   cd TodoApi
 
+
 ->Criar e Aplicar as Migrations:
 
 -Gere o arquivo de migração do banco de dados com o comando:
+
   dotnet ef migrations add InitialCreate
 
 -Aplique as migrations para criar as tabelas no banco de dados:
+
   dotnet ef database update
 
 -Confira se o banco foi criado no SQLServer.
@@ -70,12 +77,14 @@ dotnet ef migrations add InitialCreate
 
    SELECT * FROM CadastroPTs
 
- <!-- A modelagem da tabela pode ser encontrada na pasta Models, no arquivo EstruturaDb.cs e no script do banco que acompanha esse repositório. -->
+  A modelagem da tabela pode ser encontrada na pasta Models, no arquivo EstruturaDb.cs e no script do banco que acompanha esse repositório. -->
+
 
 -Executar a API:
 
 Por fim, execute a API com o comando:
   dotnet run.
+
 
 ->Configuração do Front-end:
 
