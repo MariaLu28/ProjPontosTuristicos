@@ -77,7 +77,7 @@ dotnet ef migrations add InitialCreate
 
    SELECT * FROM CadastroPTs
 
-  A modelagem da tabela pode ser encontrada na pasta Models, no arquivo EstruturaDb.cs e no script do banco que acompanha esse repositório. -->
+  A modelagem da tabela pode ser encontrada na pasta Models, no arquivo EstruturaDb.cs e no script do banco que acompanha esse repositório.
 
 
 -Executar a API:
