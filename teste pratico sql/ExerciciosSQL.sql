@@ -1,6 +1,8 @@
 USE cadastroclientes
 GO
 
+-- 1.SELECT que retorne APENAS o nome dos clientes da cidade “TUPA”. Utilizar o EXISTS para realizar a condição. 
+
 SELECT cli_nome
   FROM cadclientes c
  WHERE EXISTS (
@@ -10,7 +12,6 @@ SELECT cli_nome
       AND ci.cid_id = c.cli_cidade
 );
 
-select * from cidade
 
 --2. SELECT que retorne o nome do cliente e o nome da cidade de todos os registros:
 
